@@ -17,7 +17,7 @@ US 1:
 Make a deposit in my account
 
 POST : ADD NEW RECORD WITH TYPE DEPOSIT
-http://localhost:8080/bankAccount/{ID_ACCOUNT}/record/add
+http://localhost:8080/bankAccount/{ID_ACCOUNT}/record/add/deposit
 
 BODY : {"amount":1000, "type":"DEPOSIT"}
 
@@ -25,8 +25,8 @@ US 2:
 
 Make a withdrawal from my account
 
-POST : ADD NEW RECORD WITH TYPE DEPOSIT
-http://localhost:8080/bankAccount/{ID_ACCOUNT}/record/add
+POST : ADD NEW RECORD WITH TYPE withdrawal
+http://localhost:8080/bankAccount/{ID_ACCOUNT}/record/add/withdrawal
 
 BODY : {"amount":1000, "type":"DEPOSIT"}
 
