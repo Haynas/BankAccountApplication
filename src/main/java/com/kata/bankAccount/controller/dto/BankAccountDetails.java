@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Builder
 public class BankAccountDetails {
-    List<RecordDto> recordDtos;
-    Float balance;
-    Long accountId;
+    private List<RecordDto> recordDtos;
+    private double balance;
+    private Long accountId;
 }

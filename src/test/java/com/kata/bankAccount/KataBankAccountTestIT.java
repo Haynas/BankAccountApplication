@@ -1,5 +1,6 @@
 package com.kata.bankAccount;
 
+
 import com.kata.bankAccount.controller.dto.RecordDto;
 import com.kata.bankAccount.entity.Account;
 import com.kata.bankAccount.entity.Customer;
@@ -32,20 +33,20 @@ public class KataBankAccountTestIT {
         Customer customer = new Customer();
         Account account = Account.builder()
                 .client(customer)
-                .balance(15000f)
+                .balance(15000)
                 .build();
         bankService.addCustomer(customer);
         bankService.addAccount(account);
         bankService.addRecordToAccount(account.getId(), RecordDto.builder()
-                .amount(1000f)
+                .amount(1000)
                 .type(DEPOSIT)
                 .build());
         bankService.addRecordToAccount(account.getId(), RecordDto.builder()
-                .amount(1500f)
+                .amount(1500)
                 .type(WITHDRAWAL)
                 .build());
         bankService.addRecordToAccount(account.getId(), RecordDto.builder()
-                .amount(200f)
+                .amount(200)
                 .type(DEPOSIT)
                 .build());
     }
@@ -60,7 +61,7 @@ public class KataBankAccountTestIT {
         assertThat(records).hasSize(3);
         assertThat(records.stream()
                 .map(Record::getAmount)
-                .collect(toList())).containsExactlyInAnyOrder(1000f, 1500f, 200f);
+                .collect(toList())).containsExactlyInAnyOrder(1000.0, 1500.0, 200.0);
         assertThat(records.stream()
                 .map(Record::getType)
                 .collect(toList())).containsExactlyInAnyOrder(DEPOSIT, WITHDRAWAL, DEPOSIT);

@@ -10,6 +10,8 @@ import com.kata.bankAccount.exception.BusinessException;
 import com.kata.bankAccount.service.BankService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/bankAccount/{idAccount}")
 public class BankController {
@@ -39,8 +41,13 @@ public class BankController {
      * @param idAccount
      * @throws BusinessException
      */
-    @PostMapping("/record/add")
-    Record addRecord(@PathVariable Long idAccount, @RequestBody RecordDto recordDto) throws BusinessException {
+    @PostMapping("/record/add/deposit")
+    Record addDepositRecord(@PathVariable Long idAccount, @Valid @RequestBody RecordDto recordDto) throws BusinessException {
+        return bankService.addRecordToAccount(idAccount, recordDto);
+    }
+
+    @PostMapping("/record/add/withdrawal")
+    Record addWithDrawlRecord(@PathVariable Long idAccount, @Valid @RequestBody RecordDto recordDto) throws BusinessException {
         return bankService.addRecordToAccount(idAccount, recordDto);
     }
 
